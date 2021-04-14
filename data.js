@@ -1,4 +1,20 @@
+import bcrypt from "bcryptjs";
+
 const data = {
+  users: [
+    {
+      name: "ravikiran",
+      email: "ravikiran@gmail.com",
+      password: bcrypt.hashSync("123", 8),
+      isAdmin: true,
+    },
+    {
+      name: "mowgli",
+      email: "mowgli@bowbow.com",
+      password: bcrypt.hashSync("bow", 8),
+      isAdmin: false,
+    },
+  ],
   products: [
     {
       id: 1,
@@ -28,7 +44,7 @@ const data = {
       id: 3,
       name: "Reebok Slim Shirts",
       category: "Shirts",
-      image: "/images/p2.jpg",
+      image: "/images/p6.jpg",
       price: 220,
       countInStock: 0,
       brand: "Nike",
@@ -52,7 +68,7 @@ const data = {
       id: 5,
       name: "Raymonds Shirt",
       category: "Shirts",
-      image: "/images/p1.jpg",
+      image: "/images/p7.jpg",
       price: 60,
       countInStock: 2,
       brand: "Nike",
