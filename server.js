@@ -2,10 +2,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 import express from "express";
 import cors from "cors";
-
-import productsData from "./data.js";
-
 import userRouter from './routers/userRouter.js';
+import productRouter from './routers/productRouter.js';
 
 import mongoose from 'mongoose';
 const mongoURI = `${process.env.mongoURI}`;
@@ -34,20 +32,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.get("/api/products", (req, res) => {
-  res.send(productsData.products);
-});
 
-app.get("/api/products/:id", (req, res) => {
-  const product = productsData.products.find(
-    (p) => p.id === Number(req.params.id)
-  );
-  if (product) {
-    return res.send(product);
-  } else {
-    return res.status(404).send({ message: "No product found" });
-  }
-});
 
 // app.get('/sync-test', (req, res) => {
 //   throw new Error('Error from synchronous code!');
@@ -81,6 +66,7 @@ app.get("/api/products/:id", (req, res) => {
 // }))
 
 app.use('/api/users', userRouter);
+app.use('/api/products', productRouter);
 
 app.get("/", (req, res) => {
   res.send("server is ready");

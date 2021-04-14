@@ -1,4 +1,5 @@
 import bcrypt from "bcryptjs";
+import {v4 as uuidv4} from 'uuid';
 
 const data = {
   users: [
@@ -17,7 +18,6 @@ const data = {
   ],
   products: [
     {
-      id: 1,
       name: "Nike Slim Shirt",
       category: "Shirts",
       image: "/images/p1.jpg",
@@ -29,7 +29,6 @@ const data = {
       description: "High Quality Products",
     },
     {
-      id: 2,
       name: "Addidas Slim Shirt",
       category: "Shirts",
       image: "/images/p2.jpg",
@@ -41,7 +40,6 @@ const data = {
       description: "High Quality Products",
     },
     {
-      id: 3,
       name: "Reebok Slim Shirts",
       category: "Shirts",
       image: "/images/p6.jpg",
@@ -53,7 +51,6 @@ const data = {
       description: "High Quality Products",
     },
     {
-      id: 4,
       name: "Nike Slim Shoes",
       category: "Shoes",
       image: "/images/p4.jpg",
@@ -65,7 +62,6 @@ const data = {
       description: "High Quality Products",
     },
     {
-      id: 5,
       name: "Raymonds Shirt",
       category: "Shirts",
       image: "/images/p7.jpg",
