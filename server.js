@@ -6,6 +6,7 @@ import userRouter from './routers/userRouter.js';
 import productRouter from './routers/productRouter.js';
 
 import mongoose from 'mongoose';
+import orderRouter from './routers/orderRouter.js';
 const mongoURI = `${process.env.mongoURI}`;
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -69,6 +70,7 @@ app.use(cors(corsOptions));
 
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
+app.use('/api/orders', orderRouter);
 
 app.get("/", (req, res) => {
   res.send("server is ready");
